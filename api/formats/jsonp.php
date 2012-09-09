@@ -18,7 +18,7 @@ class JsonpApiFormat extends ApiFormatModel {
 		$json = Loader::helper('json');
 		$ret = $json->encode($data);
 		if($callback) {
-			$ret = $callback.'('.$ret.')';
+			$ret = $callback.'({"data": '.$ret.'})';
 		}
 		return $ret;
 	}
